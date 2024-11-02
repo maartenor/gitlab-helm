@@ -26,7 +26,7 @@
 global:
   common:
     labels: {}
-
+  replicas: 1
   image: {}
     # Registry value override is only available for the following Charts:
     # - Spamcheck
@@ -48,7 +48,7 @@ global:
     labels: {}
 
   ## https://docs.gitlab.com/charts/installation/deployment#deploy-the-community-edition
-  edition: ee
+  edition: ce
 
   ## https://docs.gitlab.com/charts/charts/globals#gitlab-version
   # gitlabVersion:
@@ -212,7 +212,7 @@ global:
     dbSecret: {}
     virtualStorages:
       - name: default
-        gitalyReplicas: 3
+        gitalyReplicas: 1
         maxUnavailable: 1
     psql:
       sslMode: disable
@@ -231,9 +231,13 @@ global:
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-minio-settings
   minio:
+    replicas: 1
     enabled: true
     credentials: {}
       # secret:
+
+  unicorn:
+    replicas: 1
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-appconfig-settings
   ## Rails based portions of this chart share many settings
@@ -554,6 +558,7 @@ global:
 
     sidekiq:
       routingRules: []
+      replicas: 1
 
     # Config that only applies to the defaults on initial install
     initialDefaults: {}
@@ -716,6 +721,7 @@ global:
   ## Secret created according to https://docs.gitlab.com/charts/installation/secrets#gitlab-runner-secret
   ## If allowing shared-secrets generation, this is OPTIONAL.
   runner:
+    replicas: 1
     registrationToken: {}
       # secret:
 
