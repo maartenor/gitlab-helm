@@ -612,6 +612,7 @@ global:
       verify: true
       # secretName:
       # caSecretName:
+    replicas: 1
 
   ## https://docs.gitlab.com/charts/charts/gitlab/spamcheck/
   spamcheck:
@@ -619,6 +620,7 @@ global:
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-gitlab-shell
   shell:
+    replicas: 1
     authToken: {}
     # secret:
     # key:
@@ -644,7 +646,7 @@ global:
   ## https://docs.gitlab.com/charts/charts/globals#configure-registry-settings
   registry:
     bucket: registry
-
+    replicas: 1
     certificate: {}
       # secret:
     httpSecret: {}
@@ -791,6 +793,7 @@ global:
   ## Global settings related to Workhorse
   workhorse:
     serviceName: webservice-default
+    replicas: 1
     # scheme:
     # host:
     # port:
